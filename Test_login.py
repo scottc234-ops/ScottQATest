@@ -1,1 +1,2 @@
-from selenium import webdriver driver = webdriver.Chrome() driver.get(‘http://automationpractice.com’) assert ‘My Store’ in driver.title driver.quit()
+
+from selenium import webdriver from selenium.webdriver.common.by import By driver = webdriver.Chrome() driver.get('https://automationpractice.com') login = driver.find_element(By.ID, 'email') login.send_keys('yourtestemail@gmail.com') password = driver.find_element(By.ID, 'passwd') password.send_keys('fake-password') driver.find_element(By.NAME, 'SubmitLogin').click() assert 'My account' in driver.title, 'Login failed!' driver.quit() That'll type creds and verify you land on the account page
